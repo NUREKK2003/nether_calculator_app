@@ -36,7 +36,7 @@ class MainFragment : Fragment() {
     }
 
     private fun ChangeTextListeners(){
-        /*binding.etOverworldX.addTextChangedListener(object : TextWatcher{
+        binding.etOverworldX.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
 
@@ -44,7 +44,7 @@ class MainFragment : Fragment() {
             }
 
             override fun afterTextChanged(newCords: Editable?) {
-                if(!viewModel.checkIfTextIsntEmpty(binding.etOverworldX.text.toString())){
+                if(!viewModel.checkIfTextIsntEmpty(binding.etOverworldX.text.toString())&&binding.etOverworldX.isFocused){
                     binding.etNetherX.setText(viewModel.calculateNetherCords(binding.etOverworldX.text))
                 }
             }
@@ -57,11 +57,11 @@ class MainFragment : Fragment() {
             }
 
             override fun afterTextChanged(newCords: Editable?) {
-                if(!viewModel.checkIfTextIsntEmpty(binding.etOverworldZ.text.toString())){
+                if(!viewModel.checkIfTextIsntEmpty(binding.etOverworldZ.text.toString())&&binding.etOverworldZ.isFocused){
                     binding.etNetherZ.setText(viewModel.calculateNetherCords(binding.etOverworldZ.text))
                 }
             }
-        })*/
+        })
         binding.etNetherX.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
@@ -70,7 +70,7 @@ class MainFragment : Fragment() {
             }
 
             override fun afterTextChanged(newCords: Editable?) {
-                if(!viewModel.checkIfTextIsntEmpty(binding.etNetherX.text.toString())){
+                if(!viewModel.checkIfTextIsntEmpty(binding.etNetherX.text.toString())&&binding.etNetherX.isFocused){
                     binding.etOverworldX.setText(viewModel.calculateOverworldCords(binding.etNetherX.text))
                 }
             }
@@ -83,7 +83,7 @@ class MainFragment : Fragment() {
             }
 
             override fun afterTextChanged(newCords: Editable?) {
-                if(!viewModel.checkIfTextIsntEmpty(binding.etNetherZ.text.toString())){
+                if(!viewModel.checkIfTextIsntEmpty(binding.etNetherZ.text.toString())&&binding.etNetherZ.isFocused){
                     binding.etOverworldZ.setText(viewModel.calculateOverworldCords(binding.etNetherZ.text))
                 }
             }
